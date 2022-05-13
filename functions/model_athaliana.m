@@ -1,7 +1,7 @@
 %%% flux in entire cone
-function [model, biomass] = model_athaliana(adrs, file_name, rnd, lb_bio, bio, nit_amu)
+function [model, biomass] = model_athaliana(file_name, rnd, lb_bio, bio, nit_amu)
 
-load(strcat(adrs,file_name,'.mat'));
+load(strcat(file_name,'.mat'));
 
 Ain = zeros(2,size(model.S,2));
 Bin = zeros(2,1);
