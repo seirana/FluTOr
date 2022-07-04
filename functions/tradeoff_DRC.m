@@ -1,5 +1,5 @@
 function [match, lst] = tradeoff_DRC(QFCA, F2C2, trade_offs, names)
-
+% compare the reactions in trade-off with classified reactions with the methods with QFCA and F2C2
 s = size(trade_offs,1)-1;
 DC = zeros(s,3);
 trd = str2double(trade_offs(1:end-1,3:end));
