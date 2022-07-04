@@ -19,7 +19,7 @@ model.QFCA.rxnN = string(model.rxnNumber);
 model.QFCA.FC = 1:size(model.S,2);
 model.QFCA.FC = string(model.QFCA.FC');
 
-% update modeol.QFCA
+% update modeol.QFCA 
 for i = 1:size(QFCA04,1)
     for j = i+1:size(QFCA04,2)
         if diff(i,j) == 1
