@@ -9,6 +9,7 @@ options = optimset('linprog');
 options.Display = 'off';
 
 %FBA
+% calculating optimum biomass rate
 A = [];
 b = [];
 
@@ -39,6 +40,7 @@ if lb_bio > 0
 end
 
 % FVA
+% calculating flux range for all reactions
 for i = 1:size(model.S,2)
     obj = zeros(size(model.c));
     obj(i)=-1;
@@ -75,5 +77,6 @@ for i = 1:size(model.mets,1)
     model.metNumber(i,1) = i;
 end
 
+% remove blocked reactions and metabolites
 model = remove_blocked_reactions_metabolites(model);
 end
