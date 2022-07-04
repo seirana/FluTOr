@@ -1,7 +1,7 @@
-%%% remove blocked reactions and metabolites, zero columns and metabolites
 function model = remove_blocked_reactions_metabolites(model)
-
-%%% change negative irreversible rxns to positive
+% remove blocked reactions and metabolites, zero columns and metabolites
+%
+change negative irreversible rxns to positive
 for i = 1:size(model.rxns,1)
     if model.lb(i) < 0 && model.ub(i) <= 0
         tmp = model.lb(i);
