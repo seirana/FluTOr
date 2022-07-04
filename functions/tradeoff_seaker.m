@@ -1,7 +1,9 @@
 function tradeoff_seaker(file_name, model, biomass)
+% find trade-offs on the model
+
 if size(model.rxns,1) > 1
     
-    [rxns, model, irr_lst, fix_lst, bio_lst, bio_QFCA, bio] = INFO(model, biomass);
+    [rxns, model, irr_lst, fix_lst, bio_lst, bio_QFCA, bio] = INFO(model, biomass); % lists the reaction names
     
     % Aeq = [k, a, u, s]
     % k*N = a; a_fix(no limitation); a_bio > 0; a_irr <= 0;
@@ -117,7 +119,7 @@ if size(model.rxns,1) > 1
                     trd(bio,i) = 1;
                     trd(end,i) = s;
                 end
-                new_bin = [zeros(1,m), zeros(1,r), zeros(1,v), s_in];
+                new_bin = [zeros(1,m), zeros(1,r), zeros(1,v), s_in]; % add new constraint to intlinprog
                 Ain = [Ain; new_bin];
                 bin = [bin; s-1];
             end
