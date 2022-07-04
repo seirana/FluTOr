@@ -1,4 +1,5 @@
 function [rxns, model, irr_lst, fix_lst, bio_lst, bio_QFCA, bio] = INFO(model, biomass)
+% this function lists fixed and variable reactions
 
 bio_QFCA = strfind(string(model.QFCA.rxns),biomass);
 if iscell(bio_QFCA)
@@ -16,9 +17,11 @@ l = str2double(split(l,','));
 bio_lst = [bio_lst;l];
 bio_lst = sort(bio_lst);
 
+% list of reactions with fixed flux
 fix_lst = setdiff(find(model.lb == model.ub),bio_lst);
 fix_lst = sort(fix_lst);
 
+% list of reactions with irreversilbe varialbe flux
 irr_lst = setdiff(find(model.lb ~= model.ub),bio_lst);
 irr_lst = sort(irr_lst);
 
