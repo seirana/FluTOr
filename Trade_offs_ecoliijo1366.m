@@ -9,8 +9,8 @@ for c = 2:size(conditions,1) % loop for set of constraitns
     [mdl1, biomass] = model_ecoliijo1366_davidi(file_name, rnd, string(conditions(c,:))); % read the model
     
     mdl2 = QFCA(mdl1, rnd); % modified QFCA functions
-    mdl2.F2C2.fctable = FC_F2C2(mdl2);
-    model = QFCA_F2C2_subscription(mdl2);
+    mdl2.F2C2.fctable = FC_F2C2(mdl2); % modified F2C2 function
+    model = QFCA_F2C2_subscription(mdl2); % find mutual fully coupled reactions
     
     f_name = strcat(file_name, '_condition=', string(conditions(c,1)));
     save(strcat(adrs, f_name, '_model.mat'),'model'); % save model
@@ -24,13 +24,13 @@ cb = string(cb(2:end,2));
 % find trade-offs for each active carbon source
 for c = 1:size(carbon_source,1) % loop for active carbon source
     for j = 1:3 % loop for biomass lower bound
-        lb_bio = 0.85+j*0.05;
+        lb_bio = 0.85+j*0.05; % biomass lower bound
         
         [mdl1, biomass] = model_ecoliijo1366_carbonsource(file_name, rnd, lb_bio, carbon_source, c); % read the model
         
         mdl2 = QFCA(mdl1, rnd); % modified QFCA functions
-        mdl2.F2C2.fctable = FC_F2C2(mdl2);
-        model = QFCA_F2C2_subscription(mdl2);
+        mdl2.F2C2.fctable = FC_F2C2(mdl2); % modified F2C2 function
+        model = QFCA_F2C2_subscription(mdl2); % find mutual fully coupled reactions
         
         f_name = strcat(file_name, '_CB=', cb(c,1), '_bioLB=', string(lb_bio));
         save(strcat(adrs, f_name, '_model.mat'),'model'); % save model
