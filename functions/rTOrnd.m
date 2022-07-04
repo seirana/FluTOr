@@ -1,4 +1,4 @@
-function r = rTOrnd(rnd)
+function r = rTOrnd(rnd) 
 r = 0;
 while rnd < 1
     rnd = rnd*10;
