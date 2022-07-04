@@ -1,6 +1,6 @@
 function [model, biomass] = model_ecoliijo1366_davidi(file_name, rnd, condition)
 
-load(strcat(file_name,'.mat'));
+load(strcat(file_name,'.mat')); % load the model
 carbon_source = xlsread(strcat(file_name, '_CarbonSources.xlsx'));
 
 % block all carbon sources / desired one
