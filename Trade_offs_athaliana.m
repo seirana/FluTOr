@@ -8,7 +8,7 @@ active_bio = {'Bio_CLim','Bio_NLim','Bio_opt'}; % active biomass
 for b = 1:3 % loop for active biomass
     for na = 1:3 % loop for nictogen source
         for j = 1:3 % loop for value of biomass lower bound
-            lb_bio = 0.85+j*0.05;
+            lb_bio = 0.85+j*0.05; % biomass lower bound
             
             [mdl1, biomass] = model_athaliana(file_name, rnd, lb_bio, active_bio(b), nit_amu(na)); % read the model
             
