@@ -1,5 +1,5 @@
 function QFCA = mergeFullyCoupled(QFCA, i, j, c)
-% edited by Seirana
+% edited
 %
 % mergeFullyCoupled merges the fully coupled pair of reactions (i, j)
 %
