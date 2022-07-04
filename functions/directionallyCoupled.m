@@ -1,4 +1,4 @@
-function result = directionallyCoupled(S, rev, i, lb, ub)
+function result = directionallyCoupled(S, rev, i, lb, ub) 
 % directionallyCoupled finds all the directionally coupled reactions to i
 %
 % USAGE:
