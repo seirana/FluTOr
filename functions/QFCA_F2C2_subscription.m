@@ -1,4 +1,5 @@
 function model = QFCA_F2C2_subscription(model)
+% finds mutual fully coupled reactions betwen the two method QFCA and F2C2
 
 QFCA04 = model.QFCA.DC_fctable;
 QFCA01 = model.QFCA.DC_fctable;
