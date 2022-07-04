@@ -2,7 +2,7 @@ function model = roundSmatrix(model, which)
 if which == "org"
     S = model.S;
     S(S == 0) = Inf;    
-    mini =min(abs(S));
+    mini = min(abs(S));
     mm = min(mini);
     r = 1;
     while mm < 1
