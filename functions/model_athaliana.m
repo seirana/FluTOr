@@ -1,11 +1,12 @@
-%%% flux in entire cone
 function [model, biomass] = model_athaliana(file_name, rnd, lb_bio, bio, nit_amu)
+%%% flux in entire cone
 
-load(strcat(file_name,'.mat'));
+load(strcat(file_name,'.mat')); % load the model
 
 Ain = zeros(2,size(model.S,2));
 Bin = zeros(2,1);
 
+% set nitrogen source
 if string(nit_amu) == 'NO3'
     model.lb(string(model.rxns) == 'Im_NH4') = 0;
     model.ub(string(model.rxns) == 'Im_NH4') = 0;
