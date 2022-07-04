@@ -1,6 +1,6 @@
 function fctable = F2C2_table(model)
 
-%%% add F2C2 fields for the model
+% add F2C2 fields for the model
 fc_mdl = model;
 fc_mdl.stoichiometricMatrix = model.S;
 fc_mdl.Reactions = model.rxns;
@@ -15,7 +15,7 @@ for i = 1:size(fc_mdl.Reactions,1)
     end
 end
 
-%%% F2C2
+% F2C2
 solver = 'glpk';%'linprog';
 
 [fctable, ~] = F2C2(solver, fc_mdl);%, 10^(-1*rnd));
