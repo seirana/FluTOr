@@ -1,5 +1,5 @@
 clc;clear;
-
+% reads E. coli model and finds trade-offs
 file_name = 'Ecoli_iJO1366';
 rnd = 1e-5;
 
