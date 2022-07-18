@@ -1,5 +1,4 @@
 function model = QFCA(model,rnd)
-% Edited
 % QFCA computes the table of fully coupling relations and the list of blocked
 % reactions for a metabolic network specified by its stoichiometric matrix
 % and irreversible reactions and also returns the reduced metabolic network.
@@ -30,6 +29,8 @@ function model = QFCA(model,rnd)
 %
 % .. Authors:
 %        - Mojtaba Tefagh, Stephen P. Boyd, 2019, Stanford University
+% .. modified
+%        -Seirana Hashemi, 2022, unversity of Potsdam
 
 r = rTOrnd(rnd);
 
