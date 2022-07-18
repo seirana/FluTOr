@@ -1,4 +1,19 @@
 function fctable = F2C2_table(model)
+% fctable builds a model with desired fields that F2C2 function needs then calls the F2C2 function
+%
+% USAGE:
+%     fctable = F2C2_table(model)
+%
+% INPUTS:
+%     model: the metabolic network with fields:
+%         * .S -    the associated sparse stoichiometric matrix
+%         * .rxns - the cell array of reaction abbreviations
+%         * .mets - the cell array of metabolite abbreviations
+%         * .lb -   the doulbe array of reaction flux lower bound
+%         * .ub -   the doulbe array of reaction flux upper bound
+%
+% OUTPUT:
+%     fctable: the table to show the realation between each two reactions; fully coupled, partailly coupled, directionally coupled, or uncoupled
 
 % add F2C2 fields for the model
 fc_mdl = model;
