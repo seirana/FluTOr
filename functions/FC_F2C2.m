@@ -13,7 +13,7 @@ function fctable = FC_F2C2(model)
 %         * .ub -   the doulbe array of reaction flux upper bound
 %
 % OUTPUT:
-%     fctable: the table to show the realation between each two reactions; fully coupled, partailly coupled, directionally coupled, or uncoupled
+%     fctable: the table to shows fully coupled reactions = 1, pothers = 0
 
 % add F2C2 fields for the model
 fc_mdl = model;
