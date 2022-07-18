@@ -19,6 +19,7 @@ function [model, biomass] = model_athaliana(file_name, rnd, lb_bio, bio, nit_amu
 %         * .mets - metabolite names
 %         * .S - stoichiometric matrix
 %         * .c - objective coefficients
+%     biomass: the name of active biomass reaction
 
 load(strcat(file_name,'.mat')); % load the model
 
