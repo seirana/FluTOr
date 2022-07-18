@@ -3,7 +3,7 @@ function tradeoff_seaker(file_name, model, biomass)
 
 if size(model.rxns,1) > 1
     
-    [rxns, model, irr_lst, fix_lst, bio_lst, bio_QFCA, bio] = INFO(model, biomass); % lists the reaction names
+    [rxns, irr_lst, fix_lst, bio_lst, bio_QFCA, bio] = INFO(model, biomass); % lists the reaction names
     
     % Aeq = [k, a, u, s]
     % k*N = a; a_fix(no limitation); a_bio > 0; a_irr <= 0;
