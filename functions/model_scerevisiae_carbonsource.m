@@ -8,8 +8,8 @@ function [model, biomass] = model_scerevisiae_carbonsource(file_name, rnd, lb_bi
 %     file_name: the name of the original model to load
 %     rnd: flux accuracy (default: 1e-5)
 %     lb_bio: the rio of lower bound of lower bound of biomass to the optimum biomass flux value
-%     bio: the name of active biomass raction
-%     nit_amu: the uptake ratio of nitrate to ammunium
+%     carbon_source: the list of carbon sources
+%     c: the active carbon source
 
 % OUTPUT:
 %     model: the metabolic network with fields:
