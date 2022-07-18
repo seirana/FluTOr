@@ -1,35 +1,19 @@
 function fctable = FC_F2C2(model)
-% FC_F2C2 calculates the flux range s for the reactions, 
-%     and remove blocked reactions and deadend metabolites fro mthe model
+% FC_table builds a model with desired fields that F2C2 function needs then calls the F2C2 function
 %
 % USAGE:
-%     fctable = FC_F2C2(model)
+%     fctable = F2C2_table(model)
 %
 % INPUTS:
 %     model: the metabolic network with fields:
 %         * .S -    the associated sparse stoichiometric matrix
-%         * .c -    a binary vectore for objective function
 %         * .rxns - the cell array of reaction abbreviations
 %         * .mets - the cell array of metabolite abbreviations
 %         * .lb -   the doulbe array of reaction flux lower bound
 %         * .ub -   the doulbe array of reaction flux upper bound
-%     rnd: flux accuracy equals (default: 1e-5)
-%     bio: biomass reaction number
-%     lb_bio: lowest possible flux value for biomass reaction in the model
-%     Ain: inequality matrix of linprog function(m*n)
-%     Bin: right side of inequality matrix of linprog function(m*1)  Ain <= Bin 
-%          (check https://de.mathworks.com/help/optim/ug/linprog.html#d123e112212 for more information)
 %
 % OUTPUT:
-%     model: the metabolic network with fields:
-%         * .S -    the associated sparse stoichiometric matrix
-%         * .c -    a binary vectore for objective function
-%         * .rxns - the cell array of reaction abbreviations
-%         * .mets - the cell array of metabolite abbreviations
-%         * .lb -   the doulbe array of reaction flux lower bound
-%         * .ub -   the doulbe array of reaction flux upper bound
-%         * .rxnNumner: to show the reaction number on the original model after converintg the model to irreversible, 
-%                       and before deleting the bloc
+%     fctable: the table to show the realation between each two reactions; fully coupled, partailly coupled, directionally coupled, or uncoupled
 
 % add F2C2 fields for the model
 fc_mdl = model;
