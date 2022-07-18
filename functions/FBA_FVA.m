@@ -1,5 +1,5 @@
 function model = FBA_FVA(model, rnd, bio, lb_bio, Ain, Bin)
-% The function calculates the flux range s for the reactions, 
+% FBA_FVA calculates the flux range s for the reactions, 
 %     and remove blocked reactions and deadend metabolites fro mthe model
 %
 % USAGE:
