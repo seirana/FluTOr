@@ -1,5 +1,5 @@
 function fctable = F2C2_table(model)
-% fctable builds a model with desired fields that F2C2 function needs then calls the F2C2 function
+% F2C2_table builds a model with desired fields that F2C2 function needs then calls the F2C2 function
 %
 % USAGE:
 %     fctable = F2C2_table(model)
