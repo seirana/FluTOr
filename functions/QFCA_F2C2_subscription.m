@@ -1,11 +1,32 @@
 function model = QFCA_F2C2_subscription(model)
-% finds mutual fully coupled reactions betwen the two method QFCA and F2C2
+%QFCA_F2C2 finds mutual fully coupled reactions betwen the two method QFCA and F2C2
+%
+% USAGE:
+%     model = QFCA_F2C2_subscription(model)
+%
+% INPUTS:
+%     model: the metabolic network with fields:
+%         * .QFCA.fctable - a matrix that shows reaction between each two reactions defined by QFCA method
+%         * .F2C2.fctable - a matrix that shows reaction between each two reactions defined by F2C2 method
+%         * .QFCA.FCref - returns reference number for fullycpoupled reactions
+%         * .QFCA.rxns - the list reaction names which are fully coupled
+%         * .QFCA.rxnN - the list reaction numbers which are fully coupled
+%         * .QFCA.FC- the list reaction names which are fully coupled
+%
+% OUTPUT:
+%     model: the metabolic network with fields:
+%         * .QFCA.fctable - a matrix that shows reaction between each two reactions defined by QFCA method
+%         * .F2C2.fctable - a matrix that shows reaction between each two reactions defined by F2C2 method
+%         * .QFCA.FCref - returns reference number for fullycpoupled reactions
+%         * .QFCA.rxns - the list reaction names which are fully coupled
+%         * .QFCA.rxnN - the list reaction numbers which are fully coupled
+%         * .QFCA.FC- the list reaction names which are fully coupled
 
 QFCA04 = model.QFCA.DC_fctable;
 QFCA01 = model.QFCA.DC_fctable;
 QFCA01(QFCA01 > 1) = 0;
 
-model.QFCA = rmfield(model.QFCA,{'DC_fctable','lb','ub','S','rev','mets','metN'});
+model.QFCA = rmfield(model.QFCA,{'DC_fctable','lb','ub','S','rev','mets','metN'}); % remove some fields
 
 F2C204 = model.F2C2.fctable;
 F2C201 = model.F2C2.fctable;
