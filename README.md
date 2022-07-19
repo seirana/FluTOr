@@ -16,9 +16,9 @@
 
 ## Run FluTOr
 To reproduce the results presented in the paper run the following scripts
-*E. coli: Trade_offs_ecoliijo1366
-*S. cerevisiae: Trade_offs_serevisiae
-*A. thaliana: Trade_offs_athaliana
+* E. coli: Trade_offs_ecoliijo1366
+* S. cerevisiae: Trade_offs_serevisiae
+* A. thaliana: Trade_offs_athaliana
 
 ## How to apply FluTOr to another model
 1. create a model which will be using to find tradeoffs. The output of the function must be a model named “model” and the name of the biomass reaction from the field “model.rxns”.
