@@ -37,6 +37,5 @@ model = QFCA(model, rnd); % modified QFCA functions
 model.F2C2.fctable = FC_F2C2(model);
 model = QFCA_F2C2_subscription(model);
 
-f_name = strcat(file_name, '_lb=', string(lb_bio));
-save(strcat(adrs, f_name, '_model.mat'),'model'); % save model
+save(strcat(adrs, file_name, '_modified_model.mat'),'model'); % save model
 end
