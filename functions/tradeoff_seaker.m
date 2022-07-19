@@ -1,5 +1,22 @@
 function tradeoff_seaker(file_name, model, biomass)
-% find trade-offs on the model
+% tradeoff_seaker finds trade-offs on the model
+%
+% USAGE:
+%     tradeoff_seaker(file_name, model, biomass)
+%
+% INPUTS:
+%     file_name: the name of the original model to load
+%     model: the metabolic network with fields:
+%         * .lb - the lower bound of reaction fluxes
+%         * .ub - the upper bound of reaction fluxes
+%         * .rxns - reaction names
+%         * .mets - metabolite names
+%         * .S - stoichiometric matrix
+%         * .c - objective coefficients
+%         * .QFCA.fctable - a matrix that shows reaction between each two reactions defined by QFCA method
+%         * .QFCA.FC- the list reaction names which are fully coupled
+%         * .QFCA.rxns - the cell array of list of fully coupled reactions
+%     biomass: the name of  
 
 if size(model.rxns,1) > 1
     
