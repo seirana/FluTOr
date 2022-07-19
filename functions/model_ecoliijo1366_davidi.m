@@ -8,8 +8,7 @@ function [model, biomass] = model_ecoliijo1366_davidi(file_name, rnd, condition)
 %     file_name: the name of the original model to load
 %     rnd: flux accuracy (default: 1e-5)
 %     condition: the number of the sub-model
-
-
+%
 % OUTPUT:
 %     model: the metabolic network with fields:
 %         * .lb - the lower bound of reaction fluxes
