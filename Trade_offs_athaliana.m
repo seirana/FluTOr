@@ -8,17 +8,9 @@ active_bio = {'Bio_CLim','Bio_NLim','Bio_opt'}; % active biomass
 for b = 1:3 % loop for active biomass
     for na = 1:3 % loop for nictogen source
         for j = 1:3 % loop for value of biomass lower bound
-            lb_bio = 0.85+j*0.05; % biomass lower bound
-            
-            [mdl1, biomass] = model_athaliana(file_name, rnd, lb_bio, active_bio(b), nit_amu(na)); % read the model
-            
-            mdl2 = QFCA(mddl1, rnd); % modified QFCA function
-            mdl2.F2C2.fctable = FC_F2C2(mdl2); % modified F2C2 function
-            model = QFCA_F2C2_subscription(mdl2); % find mutual fully coupled reactions
-            
-            f_name = strcat(file_name, '_bio=', string(active_bio(b)), '_', string(nit_amu(na)), '_lb=', string(lb_bio));
-            save(strcat(adrs, f_name, '_model.mat'),'model'); % save model
-            
+            lb_bio = 0.85+j*0.05; % biomass lower bound            
+            [model, biomass] = model_athaliana(file_name, rnd, lb_bio, active_bio(b), nit_amu(na)); % read the model            
+            model = CPR(model, rnd, file_name)  % find coupling relation between each pair of reactions          
             tradeoff_seaker(f_name, model, biomass); % find_tradeoffs
         end
     end
