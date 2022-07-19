@@ -1,4 +1,4 @@
-function model = CPR(mdl1, rnd, file_name)
+function model = CPR(model, rnd, file_name)
 % CPR find the coupling relation between each pair of reactions with F2C2 and QFCA methods
 %
 % USAGE:
