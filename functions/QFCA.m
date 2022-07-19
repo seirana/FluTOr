@@ -16,7 +16,7 @@ function model = QFCA(model,rnd)
 %         * .ub -   the doulbe array of reaction flux upper bound
 %
 % OUTPUT:
-%     fModel: the reduced metabolic network with fields:
+%     model.QFCA: the reduced metabolic network with fields:
 %         * .S -         the stoichiometric matrix(edited)
 %         * .rev -       the 0-1 indicator vector of the reversible reactions(edited)
 %         * .rxns -      cell array of reaction abbreviations(edited)
