@@ -4,7 +4,7 @@ function model = QFCA(model,rnd)
 % and irreversible reactions and also returns the reduced metabolic network.
 %
 % USAGE:
-%     fModel = QFCA(model)
+%     model = QFCA(model,rnd)
 %
 % INPUTS:
 %     model: the metabolic network with fields:
