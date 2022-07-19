@@ -1,7 +1,38 @@
 function model = remove_blocked_reactions_metabolites(model)
-% remove blocked reactions and metabolites, zero columns and metabolites
+% remove_blocked_reactions_metabolites removes blocked reactions and deadend metabolites
 %
-change negative irreversible rxns to positive
+% USAGE:
+%     model = remove_blocked_reactions_metabolites(model)
+%
+% INPUTS:
+%     model: the metabolic network with fields:
+%         * .lb - the lower bound of reaction fluxes
+%         * .ub - the upper bound of reaction fluxes
+%         * .rxns - reaction names
+%         * .mets - metabolite names
+%         * .S - stoichiometric matrix
+%         * .c - objective coefficients
+%         * .rxnNames - compelete reaction names
+%         * .metNames - compelete reaction names
+%         * .subSystems - subsystem which reaction belongs to
+%         * .rxnNumber- reaction number
+%         * .metNumber - metabolite number
+%
+% OUTPUT:
+%     model: the metabolic network with fields:
+%         * .lb - the lower bound of reaction fluxes
+%         * .ub - the upper bound of reaction fluxes
+%         * .rxns - reaction names
+%         * .mets - metabolite names
+%         * .S - stoichiometric matrix
+%         * .c - objective coefficients
+%         * .rxnNames - compelete reaction names
+%         * .metNames - compelete reaction names
+%         * .subSystems - subsystem which reaction belongs to
+%         * .rxnNumber- reaction number
+%         * .metNumber - metabolite number
+%
+% change negative irreversible rxns to positive
 for i = 1:size(model.rxns,1)
     if model.lb(i) < 0 && model.ub(i) <= 0
         tmp = model.lb(i);
