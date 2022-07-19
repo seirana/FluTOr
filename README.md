@@ -20,6 +20,6 @@ To reproduce the results presented in the paper run the following scripts
 2. Give a name to the string variable “file_name” to the results you want to save it as 
 3. flux accuracy must be defined as an integer variable names “rnd” (default value is 1e-5).
 4. Then run the following codes respectively
-+ model = FBA_FVA(model, rnd, biomass)
-+ model = CPR(model, rnd,file_name); 
-+ tradeoff_seaker(file_name, model, biomass); 
+   + model = FBA_FVA(model, rnd, biomass)
+   + model = CPR(model, rnd,file_name); 
+   + tradeoff_seaker(file_name, model, biomass); 
