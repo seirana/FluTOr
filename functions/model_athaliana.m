@@ -1,5 +1,5 @@
 function [model, biomass] = model_athaliana(file_name, rnd, lb_bio, bio, nit_amu)
-% model_athaliana2 reads the original model and modifies based on the conditions of the problem
+% model_athaliana reads the original model and modifies based on the conditions of the problem
 %
 % USAGE:
 %     [model, biomass] = model_athaliana(file_name, rnd, lb_bio, bio, nit_amu)
