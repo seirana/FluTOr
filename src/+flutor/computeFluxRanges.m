@@ -148,9 +148,9 @@ function options = localOptions(options)
     end
 
     if ~isempty(options.biomassFraction)
-        validateattributes(options.biomassFraction, {"numeric"}, {"scalar", "real", "positive", "<=", 1});
+        validateattributes(options.biomassFraction, {'numeric'}, {'scalar', 'real', 'positive', '<=', 1});
     end
-    validateattributes(options.tolerance, {"numeric"}, {"scalar", "real", "positive", "finite"});
+    validateattributes(options.tolerance, {'numeric'}, {'scalar', 'real', 'positive', 'finite'});
     options.convertIrreversible = logical(options.convertIrreversible);
 end
 
