@@ -1,0 +1,21 @@
+# MATLAB
+*.asv
+*.m~
+*.autosave
+slprj/
+codegen/
+*.mex*
+
+# Generated analyses
+artifacts/
+outputs/
+*_modified_model.mat
+*_tradeoffs.mat
+
+# CI/test outputs
+test-results/
+code-coverage/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
