@@ -1,0 +1,43 @@
+function output = runAnalysis(model, biomassReaction, options)
+%RUNANALYSIS Run maintained FluTOr preprocessing, coupling, and MILP search.
+%
+%   OPTIONS fields:
+%     fluxRangeOptions
+%     couplingOptions
+%     tradeoffOptions
+
+    if nargin < 3 || isempty(options)
+        options = struct();
+    end
+    if ~isfield(options, "fluxRangeOptions")
+        options.fluxRangeOptions = struct();
+    end
+    if ~isfield(options, "couplingOptions")
+        options.couplingOptions = struct();
+    end
+    if ~isfield(options, "tradeoffOptions")
+        options.tradeoffOptions = struct();
+    end
+
+    model = flutor.validateModel(model);
+    [processedModel, preprocessing] = flutor.computeFluxRanges( ...
+        model, ...
+        biomassReaction, ...
+        options.fluxRangeOptions);
+
+    coupling = flutor.computeCouplings( ...
+        processedModel, ...
+        options.couplingOptions);
+
+    tradeoffs = flutor.enumerateRelativeTradeoffs( ...
+        processedModel, ...
+        biomassReaction, ...
+        coupling, ...
+        options.tradeoffOptions);
+
+    output = struct( ...
+        "model", processedModel, ...
+        "preprocessing", preprocessing, ...
+        "coupling", coupling, ...
+        "tradeoffResult", tradeoffs);
+end
