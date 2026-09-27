@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use FluTOr, please cite the associated publication."
+title: "FluTOr"
+type: software
+authors:
+  - family-names: "Hashemi"
+    given-names: "Seirana"
+  - family-names: "Razaghi-Moghadam"
+    given-names: "Zahra"
+  - family-names: "Laitinen"
+    given-names: "Roosa A. E."
+  - family-names: "Nikoloski"
+    given-names: "Zoran"
+repository-code: "https://github.com/seirana/FluTOr"
+preferred-citation:
+  type: article
+  title: "Relative flux trade-offs and optimization of metabolic network functionalities"
+  authors:
+    - family-names: "Hashemi"
+      given-names: "Seirana"
+    - family-names: "Razaghi-Moghadam"
+      given-names: "Zahra"
+    - family-names: "Laitinen"
+      given-names: "Roosa A. E."
+    - family-names: "Nikoloski"
+      given-names: "Zoran"
+  journal: "Computational and Structural Biotechnology Journal"
+  volume: 20
+  pages: "3963-3971"
+  year: 2022
+  doi: "10.1016/j.csbj.2022.07.038"
