@@ -13,7 +13,7 @@ function [fullCoupled, diagnostics] = computeQfcaFullCoupling(model, tolerance)
     if nargin < 2 || isempty(tolerance)
         tolerance = 1e-10;
     end
-    validateattributes(tolerance, {"numeric"}, {"scalar", "real", "positive", "finite"});
+    validateattributes(tolerance, {'numeric'}, {'scalar', 'real', 'positive', 'finite'});
 
     model = flutor.validateModel(model);
     nOriginal = numel(model.rxns);
