@@ -241,11 +241,11 @@ function options = localOptions(options)
         end
     end
 
-    validateattributes(options.tolerance, {"numeric"}, {"scalar", "real", "positive", "finite"});
-    validateattributes(options.coefficientLimit, {"numeric"}, {"scalar", "real", "positive", "finite"});
-    validateattributes(options.bigM, {"numeric"}, {"scalar", "real", "positive", "finite"});
-    validateattributes(options.maxTimeSeconds, {"numeric"}, {"scalar", "real", "positive", "finite"});
-    validateattributes(options.maxSolutions, {"numeric"}, {"scalar", "real", "positive"});
+    validateattributes(options.tolerance, {'numeric'}, {'scalar', 'real', 'positive', 'finite'});
+    validateattributes(options.coefficientLimit, {'numeric'}, {'scalar', 'real', 'positive', 'finite'});
+    validateattributes(options.bigM, {'numeric'}, {'scalar', 'real', 'positive', 'finite'});
+    validateattributes(options.maxTimeSeconds, {'numeric'}, {'scalar', 'real', 'positive', 'finite'});
+    validateattributes(options.maxSolutions, {'numeric'}, {'scalar', 'real', 'positive'});
     options.display = char(string(options.display));
 end
 
