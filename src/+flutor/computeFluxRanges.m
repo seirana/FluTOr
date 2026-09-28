@@ -24,6 +24,7 @@ function [model, diagnostics] = computeFluxRanges(model, biomassReaction, option
 
     model = flutor.validateModel(model);
     biomassIndex = localReactionIndex(model, biomassReaction);
+    biomassID = string(model.rxns{biomassIndex});
 
     nReactions = numel(model.rxns);
     objective = zeros(nReactions, 1);
@@ -69,7 +70,9 @@ function [model, diagnostics] = computeFluxRanges(model, biomassReaction, option
             error("flutor:OptimizationFailed", "Biomass optimum is non-finite.");
         end
 
-        lower(biomassIndex) = options.biomassFraction * optimumBiomass;
+        lower(biomassIndex) = max( ...
+            lower(biomassIndex), ...
+            options.biomassFraction * optimumBiomass);
         if lower(biomassIndex) > upper(biomassIndex)
             error( ...
                 "flutor:InfeasibleBiomassFraction", ...
@@ -120,8 +123,15 @@ function [model, diagnostics] = computeFluxRanges(model, biomassReaction, option
     model = localCanonicalizeNegativeIrreversible(model, options.tolerance);
     [model, removed] = localRemoveBlocked(model, options.tolerance);
 
+    if nnz(string(model.rxns) == biomassID) ~= 1
+        error( ...
+            "flutor:BiomassReactionLost", ...
+            "Target reaction %s is missing or ambiguous after preprocessing.", ...
+            biomassID);
+    end
+
     diagnostics = struct( ...
-        "biomassReaction", string(model.rxns(localSafeBiomassIndex(model, biomassReaction))), ...
+        "biomassReaction", biomassID, ...
         "biomassFraction", options.biomassFraction, ...
         "optimumBiomass", optimumBiomass, ...
         "nReactionsBeforeIrreversibleConversion", nBefore, ...
@@ -233,23 +243,3 @@ function [model, removed] = localRemoveBlocked(model, tolerance)
     removed = struct("nReactions", nReactions, "nMetabolites", nMetabolites);
 end
 
-function index = localSafeBiomassIndex(model, biomassReaction)
-    if isnumeric(biomassReaction)
-        if isfield(model, "rxnNumber")
-            match = find(model.rxnNumber == biomassReaction, 1);
-            if ~isempty(match)
-                index = match;
-                return;
-            end
-        end
-        index = 1;
-        return;
-    end
-
-    match = find(string(model.rxns) == string(biomassReaction), 1);
-    if isempty(match)
-        index = 1;
-    else
-        index = match;
-    end
-end
