@@ -26,7 +26,7 @@ function output = runFluTOr(modelFile, biomassReaction, outputDirectory, boundsF
         if ~isfile(boundsFile)
             error("flutor:BoundsFileNotFound", "Bounds file not found: %s", boundsFile);
         end
-        boundChanges = readtable(boundsFile, "TextType", "string");
+        boundChanges = readtable(boundsFile, 'TextType', 'string');
         model = flutor.applyReactionBounds(model, boundChanges);
     end
 
